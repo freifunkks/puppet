@@ -37,7 +37,7 @@ class base_node() {
   class { 'ntp': }
 }
 
-node 'vpn2.ffks.de' {
+node 'vpn2' {
   class { 'base_node': }
 
   exec { "add-fastd":
