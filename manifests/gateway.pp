@@ -43,5 +43,6 @@ node 'vpn2' {
   class { 'vpn':
     ip_addr => '37.120.176.206',
     vpn_nr  => '2',
+    secret_key => '123'
   }
 }
