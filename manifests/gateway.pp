@@ -32,7 +32,7 @@ class base_node() {
   }
 
   # install security updates
-  # class { 'unattended_upgrades': }
+  class { 'unattended_upgrades': }
 
   class { 'ntp': }
 }
