@@ -37,31 +37,6 @@ class base_node() {
   class { 'ntp': }
 }
 
-class vpn(
-  $inet_dev='eth0',
-  $ip_addr,
-  $vpn_nr
-) {
-  apt::source { 'universe-factory':
-    comment  => 'This repo includes a fastd release',
-    location => 'http://repo.universe-factory.net/debian/',
-    release  => 'jessie',
-    repos    => 'main',
-  }
-
-  # install gateway packages
-  package { ['bridge-utils', 'fastd', 'openvpn', 'batctl']:
-    ensure => installed,
-  }
-
-  # fastd configuration
-  file { '/etc/fastd/fastd.conf':
-    ensure  => present,
-    content => template('fastd.conf'),
-    mode    => 755,
-  }
-}
-
 node 'vpn2' {
   class { 'base_node': }
 
