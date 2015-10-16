@@ -32,21 +32,41 @@ class base_node() {
   }
 
   # install security updates
-  class { 'unattended_upgrades': }
+  # class { 'unattended_upgrades': }
 
   class { 'ntp': }
+}
+
+class vpn(
+  $inet_dev='eth0',
+  $ip_addr,
+  $vpn_nr
+) {
+  apt::source { 'universe-factory':
+    comment  => 'This repo includes a fastd release',
+    location => 'http://repo.universe-factory.net/debian/',
+    release  => 'jessie',
+    repos    => 'main',
+  }
+
+  # install gateway packages
+  package { ['bridge-utils', 'fastd', 'openvpn', 'batctl']:
+    ensure => installed,
+  }
+
+  # fastd configuration
+  file { '/etc/fastd/fastd.conf':
+    ensure  => present,
+    content => template('fastd.conf'),
+    mode    => 755,
+  }
 }
 
 node 'vpn2' {
   class { 'base_node': }
 
-  exec { "add-fastd":
-    command => 'echo "deb http://repo.universe-factory.net/debian/ jessie main" > /etc/apt/sources.list.d/universe.list'
-  }
-
-  exec { 'apt-update': }
-
-  package { ['bridge-utils', 'fastd', 'openvpn']:
-    ensure => installed,
+  class { 'vpn':
+    ip_addr => '37.120.176.206',
+    vpn_nr  => '2',
   }
 }
