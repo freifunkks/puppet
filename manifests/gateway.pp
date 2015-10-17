@@ -19,17 +19,12 @@ class base_node() {
 
   # list of base packages we deploy on every node
   package { [
-    'byobu',
     'dstat',
     'git',
     'htop',
     'iputils-tracepath',
-    'man-db',
-    'mailutils',
     'mtr',
-    'screen',
     'tcpdump',
-    'tmux',
     'vim'
   ]:
     ensure => installed,
