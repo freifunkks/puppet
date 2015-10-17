@@ -14,7 +14,7 @@ class base_node() {
 
   # do not install recommended packages
   Package {
-    install_options => ['--no-install-recommends'],
+    install_options => ['--no-install-recommends', '--force-yes'],
   }
 
   # list of base packages we deploy on every node
