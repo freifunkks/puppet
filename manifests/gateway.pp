@@ -47,6 +47,8 @@ node 'vpn2' {
 
   class { 'vpn':
     ip_addr => '37.120.176.206',
+    ip_base => '37.120.176',
+    ip_mask => '22',
     vpn_nr  => '2',
     secret_key => file('/root/fastd_secret_key')
   }
