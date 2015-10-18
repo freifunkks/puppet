@@ -57,7 +57,6 @@ node 'vpn2' {
     ip_mask => '22',
     ip_gtw  => '37.120.176.1',
     ip_brd  => '37.120.176.0',
-    vpn_nr  => '2',
-    secret_key => file('/root/fastd_secret_key')
+    vpn_nr  => '2'
   }
 }
