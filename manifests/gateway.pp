@@ -25,7 +25,8 @@ class base_node() {
     'iputils-tracepath',
     'mtr',
     'tcpdump',
-    'vim'
+    'vim',
+    'vnstat'
   ]:
     ensure => installed,
   }
@@ -34,6 +35,12 @@ class base_node() {
   class { 'unattended_upgrades': }
 
   class { 'ntp': }
+
+  service { 'vnstat':
+    ensure   => running,
+    provider => init,
+    enable   => true
+  }
 
   # sysctl configuration
   # disable ipv6 auto-configuration
