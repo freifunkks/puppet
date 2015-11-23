@@ -26,7 +26,8 @@ class base_node() {
     'mtr',
     'tcpdump',
     'vim',
-    'vnstat'
+    'vnstat',
+    'vnstati'
   ]:
     ensure => installed,
   }
@@ -41,12 +42,6 @@ class base_node() {
     provider => init,
     enable   => true
   }
-
-  # sysctl configuration
-  # disable ipv6 auto-configuration
-  sysctl { 'net.ipv6.conf.all.autoconf': value => '0' }
-  sysctl { 'net.ipv6.conf.all.accept_ra': value => '0' }
-  sysctl { 'net.ipv6.conf.all.use_tempaddr': value => '0' }
 }
 
 node 'vpn2' {
