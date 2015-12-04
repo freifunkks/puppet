@@ -11,3 +11,5 @@ mod 'sysctl',
 
 mod 'vpn',
   :git => 'https://github.com/freifunkks/puppet-vpn'
+mod 'services',
+  :git => 'https://github.com/freifunkks/puppet-services'

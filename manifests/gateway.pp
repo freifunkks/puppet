@@ -55,3 +55,21 @@ node 'vpn2' {
     vpn_nr  => '2'
   }
 }
+
+node 'vpn3' {
+  class { 'base_node': }
+
+  class { 'vpn':
+    ip_addr => '134.119.3.40',
+    ip_mask => '24',
+    ip_gtw  => '134.119.3.1',
+    ip_brd  => '134.119.3.40',
+    vpn_nr  => '3'
+  }
+}
+
+node 'web1' {
+  class { 'base_node': }
+
+  class { 'grafana': }
+}
