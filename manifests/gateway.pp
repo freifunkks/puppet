@@ -20,6 +20,7 @@ class base_node() {
   # list of base packages we deploy on every node
   package { [
     'dstat',
+    'gdb',
     'git',
     'htop',
     'iputils-tracepath',
