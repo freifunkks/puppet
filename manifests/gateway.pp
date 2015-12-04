@@ -19,6 +19,7 @@ class base_node() {
 
   # list of base packages we deploy on every node
   package { [
+    'curl',
     'dstat',
     'gdb',
     'git',
@@ -29,7 +30,8 @@ class base_node() {
     'tcpdump',
     'vim',
     'vnstat',
-    'vnstati'
+    'vnstati',
+    'wget'
   ]:
     ensure => installed,
   }
