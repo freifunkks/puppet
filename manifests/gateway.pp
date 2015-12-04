@@ -23,6 +23,7 @@ class base_node() {
     'git',
     'htop',
     'iputils-tracepath',
+    'mg', # Mini-Emacs
     'mtr',
     'tcpdump',
     'vim',
