@@ -2,11 +2,8 @@
 # Sets up users on a new server
 
 create_user () {
-	user=${1}
-	sshdir="/home/${user}/.ssh"
-	auth="authorized_keys"
-	adduser --gecos "" --quiet --disabled-password ${user}
-	usermod -a -G admin ${user}
+	adduser --gecos "" --quiet --disabled-password ${1}
+	usermod -a -G admin ${1}
 }
 
 setup_users () {
